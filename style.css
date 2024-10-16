@@ -1,0 +1,41 @@
+body {
+    background-color: black;
+    color: lime; /* Couleur des caractères */
+    font-family: 'Courier New', monospace;
+    overflow: hidden; /* Évite les barres de défilement */
+    height: 100vh; /* Hauteur pleine */
+    margin: 0;
+}
+
+.matrix {
+    display: flex;
+    justify-content: space-between; /* Espace entre les colonnes */
+    align-items: flex-start;
+    height: 100%; /* Remplit la hauteur de la fenêtre */
+    width: 100%; /* Remplit la largeur de la fenêtre */
+}
+
+.column {
+    position: relative;
+    overflow: hidden; /* Cache les caractères qui tombent */
+    width: 30px; /* Largeur de chaque colonne */
+    height: 100%; /* Remplit la hauteur de la fenêtre */
+}
+
+.symbol {
+    position: absolute;
+    bottom: 100%; /* Position initiale pour les caractères */
+    opacity: 0; /* Commence avec une opacité nulle */
+    animation: fall linear forwards; /* Animation de chute */
+}
+
+@keyframes fall {
+    0% {
+        bottom: 100%; /* Commence au sommet */
+        opacity: 1; /* Visible au départ */
+    }
+    100% {
+        bottom: -10%; /* Fait tomber le caractère en bas de la colonne */
+        opacity: 0; /* Disparaît à la fin de la chute */
+    }
+}
